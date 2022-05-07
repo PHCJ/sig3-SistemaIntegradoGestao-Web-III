@@ -4,10 +4,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Cadastrar produto</title>
+	<title>Cadastrar cliente</title>
 	<script type="text/javascript">
 		function consulta() {
-			window.open("/sig/produtos");
+			window.open("/sig/clientes");
 		}
 	</script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,16 +23,16 @@
 	</header>
 	<div class="container my-5">
 		<br />
-		<h3>Cadastrar produto</h3>
+		<h3>Cadastrar cliente</h3>
 		<div class="card">
 			<div class="card-body">
 				<div class="col-md-8">
-					<form action="#" th:action="@{/sig/produtos}" th:object="${produto}" method="post">
+					<form action="#" th:action="@{/sig/clientes}" th:object="${cliente}" method="post">
 						<div class="row">
 							<div class="form-group col-md-4">
-								<label for="codBarras" class="col-form-label">Código de barras</label>
-								<input type="text" th:field="*{codBarras}" class="form-control" id="codBarras" placeholder="Código de barras">
-								<span th:if="${#fields.hasErrors('codBarras')}" th:errors="*{codBarras}" class="text-danger">
+								<label for="cpf" class="col-form-label">CPF</label>
+								<input type="text" th:field="*{cpf}" class="form-control" id="cpf" placeholder="CPF">
+								<span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}" class="text-danger">
 								</span>
 							</div>
 						</div>
@@ -44,44 +44,43 @@
 								</span>
 							</div>
 						</div>
-						
 						<div class="row">
 							<div class="form-group col-md-8">
-								<label for="descricao" class="col-form-label">Descrição</label>
-								<input type="text" th:field="*{descricao}" class="form-control" id="descricao" placeholder="Descrição">
-								<span th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}" class="text-danger">
-								</span>
-							</div>
-						</div>
-										
-					
-						<div class="row">
-							<div class="form-group col-md-8">
-								<label for="cor" class="col-form-label">Cor</label>
-								<input type="text" th:field="*{cor}" class="form-control" id="cor" placeholder="Cor">
-								<span th:if="${#fields.hasErrors('cor')}" th:errors="*{cor}" class="text-danger">
+								<label for="dataNascimento" class="col-form-label">Data Nascimento</label>
+								<input type="text" th:field="*{dataNascimento}" class="form-control" id="dataNascimento"
+									placeholder="Data Nascimento">
+								<span th:if="${#fields.hasErrors('dataNascimento')}" th:errors="*{dataNascimento}"
+									class="text-danger">
 								</span>
 							</div>
 						</div>
 						<div class="row">
-							<div class="form-group col-md-8">
-								<label for="tamanho" class="col-form-label">Tamanho</label>
-								<input type="text" th:field="*{tamanho}" class="form-control" id="tamanho" placeholder="Tamanho">
-								<span th:if="${#fields.hasErrors('tamanho')}" th:errors="*{tamanho}" class="text-danger"></span>
+							<div class="form-group col-md-2">
+								<label for="dataNascimento" class="col-form-label">Sexo</label>
+								<input type="text" th:field="*{sexo}" class="form-control" id="sexo" placeholder="M/F">
+								<span th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}" class="text-danger">
+								</span>
 							</div>
 						</div>
-					
 						<div class="row">
 							<div class="form-group col-md-8">
-								<label for="quantidade" class="col-form-label">Quantidade</label>
-								<input type="text" th:field="*{quantidade}" class="form-control" id="quantidade" placeholder="Quantidade">
-								<span th:if="${#fields.hasErrors('quantidade')}" th:errors="*{quantidade}"
+								<label for="cep" class="col-form-label">CEP</label>
+								<input type="text" th:field="*{cep}" class="form-control" id="cep" placeholder="CEP">
+								<span th:if="${#fields.hasErrors('cep')}" th:errors="*{cep}" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-8">
+								<label for="complemento" class="col-form-label">Complemento</label>
+								<input type="text" th:field="*{complemento}" class="form-control" id="complemento"
+									placeholder="Complemento numero/apto">
+								<span th:if="${#fields.hasErrors('complemento')}" th:errors="*{complemento}"
 									class="text-danger"></span>
 							</div>
 						</div>
 						<div class="form-group col-md-8">
-							<input type="submit" class="btn btn-primary" value="Cadastrar Produto">
-							<input type="button" class="btn btn-primary" value="Consultar Produto"
+							<input type="submit" class="btn btn-primary" value="Cadastrar cliente">
+							<input type="button" class="btn btn-primary" value="Consultar cliente"
 								onclick="consulta();">
 						</div>
 					</form>
