@@ -29,12 +29,17 @@
 		</div>
 	</nav>
 	<div class="imgcentral">
-		<img th:src="@{/images/SGI.png}" />
+		<center>
+			<img th:src="@{/images/capa.jpg}" />
+		</center>
 	</div>
 	<div class="container">
-		<h3>Centro Paula Souza - FATEC ZL - Desenvolvimento de Software Multiplataforma </h3>
-		<p> 2022 </p>
-		<p th:inline="text">Usuário - [[${#httpServletRequest.remoteUser}]]</p>
+		<hr style="border-width: 3px;">
+		<center>
+			<h3>Centro Paula Souza - FATEC ZL - Desenvolvimento de Software Multiplataforma </h3>
+			<p> 2022 </p>
+			<p th:inline="text">Usuário - [[${#httpServletRequest.remoteUser}]]</p>
+		</center>
 	</div>
 </body>
 

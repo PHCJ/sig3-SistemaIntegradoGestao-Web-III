@@ -31,7 +31,7 @@ public class Cliente {
 	@CPF
 	@Column(unique = true) // nao funciona com @Valid tem que tratar na camada de persistencia
 	private String cpf;
-	@NotBlank(message = "O CEP é obritatório.")
+	@NotBlank(message = "O CEP é obrigatório.")
 	private String cep;
 	private String endereco;
 	@NotBlank(message = "O complemento deve ser informado")

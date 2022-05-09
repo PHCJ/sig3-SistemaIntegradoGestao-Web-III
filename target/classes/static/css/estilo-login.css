@@ -82,7 +82,7 @@ form button {
  color: #EF3B3A; 
 } 
 body { 
-	background: url('/images/fundo.jpg');
+	background: url('/images/capa-login.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;

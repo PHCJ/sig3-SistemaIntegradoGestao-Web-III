@@ -2,6 +2,7 @@ package com.fatec.sig3.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -11,10 +12,15 @@ public class Produto {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column(unique = true)
+	@NotBlank(message = "O código de barras do produto é obrigatório")
 	private String codBarras;
+	@NotBlank(message = "O nome do produto é obrigatório")
 	private String nome;
+	@NotBlank(message = "A descrição do produto é obrigatória")
 	private String descricao;
+	@NotBlank(message = "A cor do produto é obrigatória")
 	private String cor;
+	@NotBlank(message = "O tamanho do produto é obrigatório")
 	private String tamanho;
 	private int quantidade;
 	
