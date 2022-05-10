@@ -23,6 +23,7 @@ public class Produto {
 	@NotBlank(message = "O tamanho do produto é obrigatório")
 	private String tamanho;
 	private int quantidade;
+	private double custo;
 	
 	public Produto() {}
 	
@@ -91,5 +92,11 @@ public class Produto {
 		this.quantidade = quantidade;
 	}
 	
-		
+	public void setCusto(double custo) {
+		this.custo = custo;
+	}
+
+	public double getCusto() {
+		return custo;
+	}	
 }
