@@ -3,13 +3,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 
 @Entity
 public class Produto {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column(unique = true)
 	@NotBlank(message = "O código de barras do produto é obrigatório")
@@ -27,14 +25,15 @@ public class Produto {
 	
 	public Produto() {}
 	
-	public Produto(String codBarras, String nome, String descricao, String cor, String tamanho, int quantidade) {
+	public Produto(String codBarras, String nome, String descricao, String cor, String tamanho, int quantidade, double custo) {
 		this.codBarras = codBarras;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.cor = cor;
 		this.tamanho = tamanho;
 		this.quantidade = quantidade;
-	}
+		this.custo = custo;
+	}	
 
 	public Long getId() {
 		return id;
