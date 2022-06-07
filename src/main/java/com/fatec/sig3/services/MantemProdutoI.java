@@ -42,7 +42,7 @@ public class MantemProdutoI implements MantemProduto{
 	@Override
 	public Optional<Produto> save(Produto produto) {
 		logger.info(">>>>>> servico save chamado ");
-		Optional<Produto> umProduto = consultaPorCodBarras(produto.getCodBarras());
+		Optional<Produto> umProduto = consultaPorId(produto.getId());
 
 		if (umProduto.isEmpty()) {
 			logger.info(">>>>>> servico save - dados validos");
@@ -56,7 +56,7 @@ public class MantemProdutoI implements MantemProduto{
 		logger.info(">>>>>> 1. servico altera produto chamado");
 		Optional<Produto> umProduto = consultaPorId(produto.getId());
 		if(umProduto.isPresent()) {
-			Produto produtoModificado = new Produto(produto.getCodBarras(), produto.getNome(), produto.getDescricao(), produto.getCor(), produto.getTamanho(), produto.getQuantidade());
+			Produto produtoModificado = new Produto(produto.getCodBarras(), produto.getNome(), produto.getDescricao(), produto.getCor(), produto.getTamanho(), produto.getQuantidade(),produto.getCusto());
 			produtoModificado.setId(produto.getId());
 			logger.info(">>>>>> 2. servico altera cliente cep valido para o id => " + produtoModificado.getId());
 			return Optional.ofNullable(repository.save(produtoModificado));

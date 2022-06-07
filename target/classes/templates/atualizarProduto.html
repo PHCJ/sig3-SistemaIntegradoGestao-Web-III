@@ -27,12 +27,12 @@
 		<div class="card">
 			<div class="card-body">
 				<div class="col-md-8">
-					<form action="#" th:action="@{/sig/produtos/id/{id} (id=${produto.id}) }" th:object="${produto}"
-						method="post">
+					<form th:action="@{/sig/produtos/id/{id} (id=${produto.id}) }" th:object="${produto}" method="post">
 						<div class="row">
 							<div class="form-group col-md-4">
-								<label for="codBarras" class="col-form-label">Código de barras</label> <input type="text" th:field="*{codBarras}"
-									class="form-control" id="codBarras" placeholder="codBarras"> <span
+								<label for="codBarras" class="col-form-label">Código de barras</label>
+								<input type="text" th:field="*{codBarras}" class="form-control" id="codBarras" placeholder="codBarras">
+								<span
 									th:if="${#fields.hasErrors('codBarras')}" th:errors="*{codBarras}" class="text-danger">
 								</span>
 							</div>
@@ -64,13 +64,11 @@
 							<div class="form-group col-md-8">
 								<label for="tamanho" class="col-form-label">Tamanho</label>
 								<input type="text" th:field="*{tamanho}" class="form-control" id="tamanho" placeholder="Tamanho">
-								<spa th:if="${#fields.hasErrors('tamanho')}" th:errors="*{tamanho}"
-									class="textdanger"></span>
+								<spa th:if="${#fields.hasErrors('tamanho')}" th:errors="*{tamanho}" class="textdanger"></span>
 							</div>
 							<div class="form-group col-md-8">
 								<label for="quantidade" class="col-form-label">Quantidade</label>
-								<input type="text" th:field="*{quantidade}" class="form-control" id="quantidade"
-									placeholder="Quantidade">
+								<input type="text" th:field="*{quantidade}" class="form-control" id="quantidade" placeholder="Quantidade">
 								<span th:if="${#fields.hasErrors('quantidade')}" th:errors="*{quantidade}"
 									class="text-danger"></span>
 							</div>

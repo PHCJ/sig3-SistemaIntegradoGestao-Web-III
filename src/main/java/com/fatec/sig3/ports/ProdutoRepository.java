@@ -10,7 +10,6 @@ import com.fatec.sig3.model.Produto;
 
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Long>{
-	
 	Optional<Produto>findByCodBarras(String codBarras);
 	List<Produto>findAllByNomeIgnoreCaseContaining(String nome);
 }

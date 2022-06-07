@@ -79,6 +79,13 @@
 									class="text-danger"></span>
 							</div>
 						</div>
+						<div class="row">
+							<div class="form-group col-md-8">
+								<label for="custo" class="col-form-label">Custo</label>
+								<input type="text" th:field="*{custo}" class="form-control" id="custo" placeholder="Custo">
+								<span th:if="${#fields.hasErrors('custo')}" th:errors="*{custo}" class="text-danger"></span>
+							</div>
+						</div>
 						<div class="form-group col-md-8">
 							<input type="submit" class="btn btn-primary" value="Cadastrar Produto">
 							<input type="button" class="btn btn-primary" value="Consultar Produto"

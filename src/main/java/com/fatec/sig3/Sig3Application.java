@@ -35,19 +35,23 @@ public class Sig3Application implements CommandLineRunner {
 		// ******************************************************************************************
 		// Cadastrar tres clientes na base - a cliente Claudia não comprou nada
 		// ******************************************************************************************
-		Cliente umCliente = new Cliente("Andrade", "25/05/1960", "M", "99504993052", "04280130", "1234");
+		Cliente umCliente = new Cliente("Andrade", "25/05/1960", "M", "99504993052", "04280130", "casa");
 		mantemCliente.save(umCliente);
-		umCliente = new Cliente("Silva", "18/03/1964", "M", "43011831084", "08545160", "1234");
+		umCliente = new Cliente("Silva", "18/03/1964", "M", "43011831084", "08545160", "predio");
 		mantemCliente.save(umCliente);
-		umCliente = new Cliente("Claudia", "11/05/1974", "F", "85765535380", "08545160", "1234");
+		umCliente = new Cliente("Claudia", "11/05/1974", "F", "85765535380", "08545160", "casa");
 		mantemCliente.save(umCliente);
+
 		// ******************************************************************************************
-		// Cadastrar tres produtos na base de dados
+		// Cadastrar produtos na base de dados
 		// ******************************************************************************************
-		Produto produto1 = new Produto("20022", "Calça", "Ajustavel", "Preto", "M", 200); // descricao, custo e quantidade no estoque
-		Produto produto2 = new Produto("20082", "Blusa", "confortável","Azul", "G", 300);
-		Produto produto3 = new Produto("22554", "Bermuda", "leve","Rosa", "P", 500);
-		produtoRepository.saveAll(Arrays.asList(produto1, produto2, produto3));
+		Produto produto1 = new Produto("20022", "Calça", "Ajustavel", "Preto", "M", 200, 20F); // descricao, custo e
+																								// quantidade no estoque
+		Produto produto2 = new Produto("20082", "Blusa", "confortável", "Azul", "G", 300, 300F);
+		Produto produto3 = new Produto("22554", "Bermuda", "leve", "Rosa", "P", 500, 100F);
+		Produto produto4 = new Produto("22556", "Calça", "Ziper", "Vermelho", "GG", 150, 100F);
+		produtoRepository.saveAll(Arrays.asList(produto1, produto2, produto3, produto4));
+
 		// *******************************************************************************************
 		// Cadastrar Pedido1 - entrada de dados de pedido - o cliente deve estar
 		// previamente cadastrado
@@ -57,15 +61,14 @@ public class Sig3Application implements CommandLineRunner {
 		Pedido pedido1 = new Pedido("43011831084");
 		// *******************************************************************************************
 		// Detalhes do pedido - o produto deve estar cadastrado este cliente comprou 2
-		// itens parafuso e bucha
+		// itens
 		// *******************************************************************************************
-		Optional<Produto> umProduto = produtoRepository.findById(1L);
+		Optional<Produto> umProduto = produtoRepository.findById(4L);
 		Produto produtoComprado1 = umProduto.get();
-		umProduto = produtoRepository.findById(3L);
+		umProduto = produtoRepository.findById(6L);
 		Produto produtoComprado2 = umProduto.get();
-		ItemDePedido ip1 = new ItemDePedido(produtoComprado1, 20); // quantidade comprada
-		ItemDePedido ip2 = new ItemDePedido(produtoComprado2, 10); // quantidade comprada
-		// *******************************************************************************************
+		ItemDePedido ip1 = new ItemDePedido(produtoComprado1, 1); // quantidade comprada
+		ItemDePedido ip2 = new ItemDePedido(produtoComprado2, 2); // quantidade comprada
 		// adiciona os itens comprados no pedido e salva
 		// *******************************************************************************************
 		pedido1.getItens().addAll(Arrays.asList(ip1, ip2));
@@ -75,19 +78,20 @@ public class Sig3Application implements CommandLineRunner {
 		// tijolo
 		// *******************************************************************************************
 		Pedido pedido2 = new Pedido("43011831084");
-		umProduto = produtoRepository.findById(2L);
+		umProduto = produtoRepository.findById(5L);
 		produtoComprado1 = umProduto.get();
-		ip1 = new ItemDePedido(produtoComprado1, 20); // quantidade comprada
+		ip1 = new ItemDePedido(produtoComprado1, 5); // quantidade comprada
 		pedido2.getItens().addAll(Arrays.asList(ip1));
 		pedidoServico.cadastrarPedido(pedido2);
 		// *******************************************************************************************
 		// Cadastrar Pedido 3 - entrada de dados este cliente comprou somente bucha
 		// *******************************************************************************************
 		Pedido pedido3 = new Pedido("99504993052");
-		umProduto = produtoRepository.findById(3L);
+		umProduto = produtoRepository.findById(6L);
 		produtoComprado1 = umProduto.get();
-		ip1 = new ItemDePedido(produtoComprado1, 12); // quantidade comprada
+		ip1 = new ItemDePedido(produtoComprado1, 10); // quantidade comprada
 		pedido3.getItens().addAll(Arrays.asList(ip1));
 		pedidoServico.cadastrarPedido(pedido3);
+
 	}
 }
