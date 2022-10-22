@@ -1,12 +1,25 @@
 ### Fatec ZL - Centro Paula Souza
 ##### Disciplina - Programação Web III
-Grupo 3
 
-Bianca Reis Santana do Nascimento
+https://sig-3.herokuapp.com/
 
-Daniela Lemmo Houck
++ user: jose
 
-Paulo Henrique Cardoso de Jesus 
++ senha: 123
+
+
+
+Integrantes da equipe:
+
+1. Bianca Reis Santana do Nascimento
+
+2. Daniela Lemmo Houck
+
+3. Paulo Henrique Cardoso de Jesus 
+
+
+
+
 
 ##### Processo de Desenvolvimento de Software - PDS
 > O PDS segue uma abordagem interativa incremental. Cada atividade da interação tem uma definição de pronto estabelecida com objetivo de controlar a qualidade. 
